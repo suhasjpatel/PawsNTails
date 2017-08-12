@@ -6,7 +6,7 @@
 
     <servlet>
         <servlet-name>AccountServlet</servlet-name>
-        <servlet-class>com.jhuep.pawsntails.servlets.AccountServlet</servlet-class>
+        <servlet-class>pawsntails.servlets.AccountServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AccountServlet</servlet-name>
@@ -15,7 +15,7 @@
 
     <servlet>
         <servlet-name>CheckoutServlet</servlet-name>
-        <servlet-class>com.jhuep.pawsntails.servlets.CheckoutServlet</servlet-class>
+        <servlet-class>pawsntails.servlets.CheckoutServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckoutServlet</servlet-name>
@@ -24,7 +24,7 @@
 
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>com.jhuep.pawsntails.servlets.LoginServlet</servlet-class>
+        <servlet-class>pawsntails.servlets.LoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LoginServlet</servlet-name>
@@ -33,7 +33,7 @@
 
     <servlet>
         <servlet-name>RegisterServlet</servlet-name>
-        <servlet-class>com.jhuep.pawsntails.servlets.RegisterServlet</servlet-class>
+        <servlet-class>pawsntails.servlets.RegisterServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>ReservationServlet</servlet-name>
-        <servlet-class>com.jhuep.pawsntails.servlets.ReservationServlet</servlet-class>
+        <servlet-class>pawsntails.servlets.ReservationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ReservationServlet</servlet-name>

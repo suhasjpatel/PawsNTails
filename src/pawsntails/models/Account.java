@@ -1,4 +1,4 @@
-package com.jhuep.pawsntails.models;
+package pawsntails.models;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

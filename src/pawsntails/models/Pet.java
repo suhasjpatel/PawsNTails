@@ -1,6 +1,4 @@
-package com.jhuep.pawsntails.models;
-
-import com.jhuep.pawsntails.shared.Species;
+package pawsntails.models;
 
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -17,7 +15,7 @@ public class Pet {
     private String gender;
     private boolean neuteredOrSpayed;
     private String weight;
-    private Species species;
+    private String species;
     private String color;
     private String breed;
     private boolean mixedBreed;
@@ -74,11 +72,11 @@ public class Pet {
         this.weight = weight;
     }
 
-    public Species getSpecies() {
+    public String getSpecies() {
         return species;
     }
 
-    public void setSpecies(Species species) {
+    public void setSpecies(String species) {
         this.species = species;
     }
 

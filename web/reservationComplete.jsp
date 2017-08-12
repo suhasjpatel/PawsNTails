@@ -1,13 +1,14 @@
+<%@ page import="pawsntails.shared.Strings" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%@include file='header.html' %>
+<jsp:include page="<%=Strings.HEADER%>"/>
 <body>
-<%@include file='menu.html' %>
-<form action="cart.jsp">
+<jsp:include page="<%=Strings.MENU%>"/>
+<form action="<%=Strings.CART%>">
     <!-- various input boxes for the form -->
     <input type="submit" value="View Cart">
 </form>
-<form action="reservation.jsp">
+<form action="<%=Strings.RESERVATION%>">
     <!-- various input boxes for the form -->
     <input type="submit" value="Make Another Reservation">
 </form>

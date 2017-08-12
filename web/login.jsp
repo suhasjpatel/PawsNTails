@@ -1,15 +1,14 @@
+<%@ page import="pawsntails.shared.Strings" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<%@include file='header.html' %>
+<jsp:include page="<%=Strings.HEADER%>"/>
 <body>
-<%@include file='menu.html' %>
-<form action="login">
+<jsp:include page="<%=Strings.MENU%>"/>
+<form action="<%=Strings.LOGIN_SERV%>">
     <input type="submit" value="Login"/>
 </form>
-<form action="register.jsp">
+<form action="<%=Strings.REGISTER%>">
     <input type="submit" value="Register"/>
 </form>
-form">
-
 </body>
 </html>
