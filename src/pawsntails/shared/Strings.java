@@ -23,4 +23,12 @@ public final class Strings {
     // Species
     public static final String DOG = "Dog";
     public static final String CAT = "Cat";
+
+    // Attributes/Parameters
+    public static final String ACCOUNT = "account";
+    public static final String EMAIL = "email";
+    public static final String PASSWORD = "password";
+    public static final String ERROR = "errorMessage";
+
+
 }
