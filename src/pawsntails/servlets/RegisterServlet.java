@@ -33,11 +33,17 @@ public class RegisterServlet extends HttpServlet {
         String state = req.getParameter("state");
         String zipcode = req.getParameter("zipcode");
         
-        RequestDispatcher register = req.getRequestDispatcher(Strings.MYACCOUNT);
+        //TODO ADD VALIDATION
+        
+        RequestDispatcher register = req.getRequestDispatcher(Strings.LOGIN);
         if (errorMessage.toString().isEmpty()) {
             Account account = new Account(email, password);
             session.setAttribute(Strings.ACCOUNT, account);
-        	register.forward(req, resp);
+            resp.sendRedirect(Strings.MYACCOUNT);
         }
+    	else {
+    	req.setAttribute("errorMessageRegister", errorMessage);
+    	register.forward(req, resp);
+    }
     }
 }
