@@ -4,6 +4,7 @@
 <jsp:include page="<%=Strings.HEADER%>"/>
 <body>
 <jsp:include page="<%=Strings.MENU%>"/>
+
 <form action="<%=Strings.LOGIN_SERV%>">
     <input type="submit" value="Login"/>
 </form>
