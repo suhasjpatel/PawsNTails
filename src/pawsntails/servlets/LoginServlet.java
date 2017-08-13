@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
             session.setAttribute(Strings.ACCOUNT, account);
             resp.sendRedirect(Strings.INDEX);
         } else {
+        	req.setAttribute("errorMessageLogin", errorMessage);
             login.forward(req, resp);
         }
     }

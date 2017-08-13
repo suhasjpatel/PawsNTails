@@ -6,7 +6,7 @@
 <jsp:include page="<%=Strings.MENU%>"/>
 <div class="container">
     <center>
-        <h3>If not Register!</h3>
+        <h3>Seems like there was an error...</h3>
         <form action="<%=Strings.REGISTER_SERV%>" class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="username">Username:</label>

@@ -8,6 +8,7 @@
 <div class="container">
     <center>
         <h3>Already have an account?</h3>
+        <span class="error" style="color:red">${errorMessageLogin}</span>
         <form action="<%=Strings.LOGIN_SERV%>" method="post" class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email1">Email:</label>
@@ -19,7 +20,7 @@
             <div class="form-group">
                 <label class="control-label col-sm-2" for="password">Password:</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="password1"
+                    <input type="password" class="form-control" id="password"
                            placeholder="Enter password" name="password">
                 </div>
             </div>
@@ -27,6 +28,7 @@
         </form>
 
         <h3>If not Register!</h3>
+        <span class="error" style="color:red">${errorMessageRegister}</span>
         <form action="<%=Strings.REGISTER_SERV%>" method="post" class="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-sm-2" for="email">Email:</label>
