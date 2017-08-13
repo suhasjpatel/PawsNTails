@@ -3,7 +3,7 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Paws N' Tails Pet Hotel</a>
+      <a class="navbar-brand" href="/PawsNTails">Paws N' Tails Pet Hotel</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="<%=Strings.MYACCOUNT%>">My Account</a></li>
