@@ -23,6 +23,7 @@ public final class Strings {
     // Species
     public static final String DOG = "Dog";
     public static final String CAT = "Cat";
+    public static final String OTHER = "Other";
 
     // Attributes/Parameters
     public static final String ACCOUNT = "account";

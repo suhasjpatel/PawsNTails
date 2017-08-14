@@ -51,26 +51,26 @@
         <h1>Let's get Started!</h1>
         <h3>Pick an animal breeds you wish to book.</h3>
 
-        <form class="form-inline" action="hotelRooms.jsp" method="post">
-            <input type="hidden" name="formName" value="reservation">
+        <form class="form-inline" action="<%=Strings.RESERVATION_SERV %>" method="post">
+            <input type="hidden" name="formName" value="breeds">
             <div class="form-group">
                 <div class="hover_overlay">
                 	<label class = "btn btn-primary"><img src="resources/images/dogicon_1.jpg" class="img-thumbnail img-check">
-                	<input type = "checkbox" name ="dog" id = "dog" value ="dog" class = "hidden" autocomplete = "off"></label>
+                	<input type = "checkbox" name ="Dog" id = "Dog" value ="Dog" class = "hidden" autocomplete = "off"></label>
                     <div class="overlay">
                         <div class="text">Dog</div>
                     </div>
                 </div>
                 <div class="hover_overlay">
                 	<label class = "btn btn-primary"><img src="resources/images/caticon_1.jpg" class="img-thumbnail img-check">
-                	<input type = "checkbox" name ="cat" id = "cat" value ="cat" class = "hidden" autocomplete = "off"></label>
+                	<input type = "checkbox" name ="Cat" id = "Cat" value ="Cat" class = "hidden" autocomplete = "off"></label>
                     <div class="overlay">
                         <div class="text">Cat</div>
                     </div>
                 </div>
                 <div class="hover_overlay">
                 	<label class = "btn btn-primary"><img src="resources/images/othericon_1.jpg" class="img-thumbnail img-check">
-                	<input type = "checkbox" name ="other" id = "other" value ="other" class = "hidden" autocomplete = "off"></label>
+                	<input type = "checkbox" name ="Other" id = "Other" value ="Other" class = "hidden" autocomplete = "off"></label>
                     <div class="overlay">
                         <div class="text">Other</div>
                     </div>

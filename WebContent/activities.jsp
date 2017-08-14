@@ -11,6 +11,7 @@
 				alt="dog house" src="resources/images/ball.jpg"> <img
 				alt="dog house" src="resources/images/bones.jpg">
 			<form action="<%=Strings.RESERVATION_SERV%>" method="post">
+			<input type="hidden" name="formName" value="activities">
 				<%
 					if (request.getParameter("dog_rooms") != null) {
 				%>
@@ -38,10 +39,10 @@
 
 				<u><h4>Please select your choice of activity (optional):</h4></u> 
 				<label
-					class="checkbox-inline"> <input type="checkbox" name="dog_activies" alue="camp">Doggy
+					class="checkbox-inline"> <input type="checkbox" name="dog_activies" value="camp">Doggy
 					Day Camp
 				</label> <label class="checkbox-inline"> <input type="checkbox"
-					name="dog_activies" alue="grooming"> Grooming
+					name="dog_activies" value="grooming"> Grooming
 				</label> <label class="checkbox-inline"> <input type="checkbox"
 					name="dog_activies" value="medication"> Special Medication Time
 				</label> <br> <br>
@@ -72,7 +73,7 @@
 				<u><h4>Please select your choice of activity (optional):</h4></u> 
 				
 				<label class="checkbox-inline"> <input type="checkbox"
-					name="cat_activities" alue="grooming"> Grooming
+					name="cat_activities" value="grooming"> Grooming
 				</label> <label class="checkbox-inline"> <input type="checkbox"
 					name="cat_activities" value="medication"> Special Medication Time
 				</label> <br> <br>

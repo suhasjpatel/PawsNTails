@@ -4,12 +4,15 @@
 <jsp:include page="<%=Strings.HEADER%>" />
 <body>
 	<jsp:include page="<%=Strings.MENU%>" />
+
+	
 	<div class="container">
 		<center>
 			<h1>Room Accomodations</h1>
-			<form action="activities.jsp" method ="post">
+			<form action="<%=Strings.RESERVATION_SERV %>" method ="post">
+				<input type="hidden" name="formName" value="rooms">
 				<%
-					if (request.getParameter("dog") != null) {
+					if (request.getParameter("Dog") != null) {
 				%>
 				<img alt="dog house" src="resources/images/doghouse.jpg"> <br>
 				<br>
@@ -43,7 +46,7 @@
 				<%
 					}
 
-					if (request.getParameter("cat") != null) {
+					if (request.getParameter("Cat") != null) {
 				%>
 
 
@@ -74,7 +77,7 @@
 
 				<%
 					}
-					if (request.getParameter("other") != null) {
+					if (request.getParameter("Other") != null) {
 				%>
 				<br> <br> <img alt="other house"
 					src="resources/images/doghouse.jpg"> <br> <br>
