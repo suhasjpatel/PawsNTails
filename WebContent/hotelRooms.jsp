@@ -6,8 +6,8 @@
 	<jsp:include page="<%=Strings.MENU%>" />
 	<div class="container">
 		<center>
-
-			<form action="<%=Strings.RESERVATION_SERV%>" method ="post">
+			<h1>Room Accomodations</h1>
+			<form action="activities.jsp" method ="post">
 				<%
 					if (request.getParameter("dog") != null) {
 				%>
@@ -31,13 +31,13 @@
 					pet-themed shows.
 				</p>
 
-				<h3>Please select room accomodations:</h3>
+				<u><h4>Please select room accomodations:</h4></u>
 
 
 				<label class="radio-inline"> <input type="radio"
-					name="dog_rooms">Standard Guest Room
+					name="dog_rooms" value = "standard">Standard Guest Room
 				</label> <label class="radio-inline"> <input type="radio"
-					name="dog_rooms"> Luxury Private Room
+					name="dog_rooms" value="luxury"> Luxury Private Room
 				</label> <br>
 				<br>
 				<%
@@ -64,9 +64,11 @@
 					with hypoallergenic bedding. If boarding two cats there are rooms
 					with connecting doors.
 				</p>
+				
+				<u><h4>Please select room accomodations:</h4></u>
 
 				<label class="radio-inline"> <input type="radio"
-					name="cat_rooms">Kitty Sanctuary
+					name="cat_rooms" value= "sanctuary">Kitty Sanctuary
 				</label> <br>
 				<br>
 
@@ -86,9 +88,11 @@
 					well ventulated room <br> Depending on your pet's needs we
 					will clean their cages accordingly. Must bring your own cage.
 				</p>
+				
+				<u><h4>Please select room accomodations:</h4></u>
 
 				<label class="radio-inline"> <input type="radio"
-					name="other_rooms">Critter Crate
+					name="other_rooms" value = "crate">Critter Crate
 				</label> <br>
 				<br>
 				<%

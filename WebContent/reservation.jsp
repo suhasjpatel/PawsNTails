@@ -20,7 +20,7 @@
         height: 0;
         transition: .5s ease;
     }
-
+    
     .hover_overlay:hover .overlay {
         opacity: 1;
         height: 25%;
@@ -36,6 +36,11 @@
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
     }
+    .check
+	{
+    	opacity: .5;
+	}
+
 </style>
 
 <body>
@@ -44,32 +49,42 @@
 <div class="container">
     <center>
         <h1>Let's get Started!</h1>
-        <h3>Pick an animal breed you wish to book.</h3>
+        <h3>Pick an animal breeds you wish to book.</h3>
 
-        <form class="form-inline" action="<%=Strings.RESERVATION_SERV%>" method="post">
+        <form class="form-inline" action="hotelRooms.jsp" method="post">
             <input type="hidden" name="formName" value="reservation">
             <div class="form-group">
                 <div class="hover_overlay">
-                    <input id="dog" name="dog" type="image" src="resources/images/dogicon_1.jpg" text="dog">
+                	<label class = "btn btn-primary"><img src="resources/images/dogicon_1.jpg" class="img-thumbnail img-check">
+                	<input type = "checkbox" name ="dog" id = "dog" value ="dog" class = "hidden" autocomplete = "off"></label>
                     <div class="overlay">
                         <div class="text">Dog</div>
                     </div>
                 </div>
                 <div class="hover_overlay">
-                    <input id="cat" type="image" src="resources/images/caticon_1.jpg">
+                	<label class = "btn btn-primary"><img src="resources/images/caticon_1.jpg" class="img-thumbnail img-check">
+                	<input type = "checkbox" name ="cat" id = "cat" value ="cat" class = "hidden" autocomplete = "off"></label>
                     <div class="overlay">
                         <div class="text">Cat</div>
                     </div>
                 </div>
                 <div class="hover_overlay">
-                    <input id="reptile" type="image" src="resources/images/othericon_1.jpg">
+                	<label class = "btn btn-primary"><img src="resources/images/othericon_1.jpg" class="img-thumbnail img-check">
+                	<input type = "checkbox" name ="other" id = "other" value ="other" class = "hidden" autocomplete = "off"></label>
                     <div class="overlay">
                         <div class="text">Other</div>
                     </div>
                 </div>
+                
             </div>
+            <br>
+            <br>
+            <br>
+            <input type="submit" class="btn btn-default" value="Next">
         </form>
     </center>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="check.js">  </script>
 </body>
 </html>
