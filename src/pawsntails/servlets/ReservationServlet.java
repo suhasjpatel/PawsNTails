@@ -14,14 +14,19 @@ import javax.servlet.http.HttpSession;
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class ReservationServlet extends HttpServlet {
 	private HttpSession session;
-
+	private StringBuilder errorMessage;
+	private ArrayList<ReservationBean> reservations;
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		session = req.getSession();
+		errorMessage = new StringBuilder();
 		Account account = (Account) session.getAttribute(Strings.ACCOUNT);
 		if (account == null) {
 			resp.sendRedirect(Strings.LOGIN);
@@ -60,22 +65,77 @@ public class ReservationServlet extends HttpServlet {
 	}
 
 	private void set_breeds(HttpServletRequest request, HttpServletResponse response) {
-		ArrayList<ReservationBean> reservations = new ArrayList<ReservationBean>();
+		if (session.getAttribute("reservations")== null)
+		{
+			reservations = new ArrayList<ReservationBean>();
+		}
+		else
+		{
+			reservations = (ArrayList<ReservationBean>) session.getAttribute("reservations");
+		}
+		 
 		if (request.getParameter(Strings.DOG) != null) {
 			ReservationBean reservationDog = new ReservationBean();
 			reservationDog.setAnimal(Strings.DOG);
+			
+			String toDateString = request.getParameter("toDate");			
+			String fromDateString = request.getParameter("fromDate");
+			try {
+				Date toDate=new SimpleDateFormat("dd/MM/yyyy").parse(toDateString);
+				reservationDog.setToDate(toDate);
+			} catch (ParseException e) {
+				errorMessage.append("Date must be in dd/MM/yyyy format");
+			}
+			try {
+				Date fromDate=new SimpleDateFormat("dd/MM/yyyy").parse(fromDateString);
+				reservationDog.setFromDate(fromDate);
+			} catch (ParseException e) {
+				errorMessage.append("Date must be in dd/MM/yyyy format");
+			}			
 			reservations.add(reservationDog);
 		}
 
 		if (request.getParameter(Strings.CAT) != null) {
 			ReservationBean reservationCat = new ReservationBean();
 			reservationCat.setAnimal(Strings.CAT);
+			
+			String toDateString = request.getParameter("toDate");			
+			String fromDateString = request.getParameter("fromDate");
+			try {
+				Date toDate=new SimpleDateFormat("dd/MM/yyyy").parse(toDateString);
+				reservationCat.setToDate(toDate);
+			} catch (ParseException e) {
+				errorMessage.append("Date must be in dd/MM/yyyy format");
+			}
+			try {
+				Date fromDate=new SimpleDateFormat("dd/MM/yyyy").parse(fromDateString);
+				reservationCat.setFromDate(fromDate);
+			} catch (ParseException e) {
+				errorMessage.append("Date must be in dd/MM/yyyy format");
+			}	
+			
 			reservations.add(reservationCat);
 		}
 
 		if (request.getParameter(Strings.OTHER) != null) {
 			ReservationBean reservationOther = new ReservationBean();
 			reservationOther.setAnimal(Strings.OTHER);
+			
+			String toDateString = request.getParameter("toDate");			
+			String fromDateString = request.getParameter("fromDate");
+			try {
+				Date toDate=new SimpleDateFormat("dd/MM/yyyy").parse(toDateString);
+				reservationOther.setToDate(toDate);
+			} catch (ParseException e) {
+				errorMessage.append("Date must be in dd/MM/yyyy format");
+			}
+			try {
+				Date fromDate=new SimpleDateFormat("dd/MM/yyyy").parse(fromDateString);
+				reservationOther.setFromDate(fromDate);
+			} catch (ParseException e) {
+				errorMessage.append("Date must be in dd/MM/yyyy format");
+			}	
+			
 			reservations.add(reservationOther);
 		}
 

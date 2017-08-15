@@ -49,10 +49,23 @@
 <div class="container">
     <center>
         <h1>Let's get Started!</h1>
-        <h3>Pick an animal breeds you wish to book.</h3>
-
+        
+        <h3>Pick enter a date you wish to begin stay.</h3>
+        
         <form class="form-inline" action="<%=Strings.RESERVATION_SERV %>" method="post">
             <input type="hidden" name="formName" value="breeds">
+            
+        <div class="well">
+    <input data-format="dd/MM/yyyy" placeholder="dd/MM/yyyy" type="text"  name = "fromDate" id = "fromDate"></input>
+</div>
+        <h3>Pick enter a date you wish to end stay.</h3>
+         <div class="well">
+    <input data-format="dd/MM/yyyy" placeholder="dd/MM/yyyy" type="text" name = "toDate" id = "toDate"></input>
+</div>
+        <hr>
+        <h3>Pick an animal breeds you wish to book.</h3>
+
+        
             <div class="form-group">
                 <div class="hover_overlay">
                 	<label class = "btn btn-primary"><img src="resources/images/dogicon_1.jpg" class="img-thumbnail img-check">
