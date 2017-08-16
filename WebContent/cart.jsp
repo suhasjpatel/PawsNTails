@@ -38,7 +38,7 @@
 								//TODO need to add an edit page 
 								//form doesn't work right now
 					%>
-					<form>
+					<form <% //TODO need to add action here %>>
 						<tr>
 							<td><%=reservation.datePretty(reservation.getFromDate())%> -
 								<%=reservation.datePretty(reservation.getToDate())%></td>
