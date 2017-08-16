@@ -24,11 +24,12 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
     	StringBuilder errorMessage = new StringBuilder();
         HttpSession session = req.getSession();
-        
+        String firstName = req.getParameter(Strings.FIRSTNAME);
+        String lastName = req.getParameter(Strings.LASTNAME);
         String email = req.getParameter(Strings.EMAIL);
         String password = req.getParameter(Strings.PASSWORD);
-        String address1 = req.getParameter("address");
-        String address2 = req.getParameter("address2");
+        String address1 = req.getParameter(Strings.ADDRESS1);
+        String address2 = req.getParameter(Strings.ADDRESS2);
         String city = req.getParameter("city");
         String state = req.getParameter("state");
         String zipcode = req.getParameter("zipcode");
@@ -37,7 +38,7 @@ public class RegisterServlet extends HttpServlet {
         
         RequestDispatcher register = req.getRequestDispatcher(Strings.LOGIN);
         if (errorMessage.toString().isEmpty()) {
-            Account account = new Account(email, password);
+            Account account = new Account(email, password, firstName, lastName, address1, address2, city, state, zipcode);
             session.setAttribute(Strings.ACCOUNT, account);
             resp.sendRedirect(Strings.MYACCOUNT);
         }

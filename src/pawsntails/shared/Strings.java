@@ -30,6 +30,12 @@ public final class Strings {
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
     public static final String ERROR = "errorMessage";
+    
+    //account strings
+    public static final String FIRSTNAME = "firstName";
+    public static final String LASTNAME = "lastName";
+    public static final String ADDRESS1 = "address";
+    public static final String ADDRESS2 = "address2";
 
 
 }

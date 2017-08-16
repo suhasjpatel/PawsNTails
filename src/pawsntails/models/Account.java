@@ -12,7 +12,7 @@ public class Account {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private String phoneType;
+	private String phoneType;
     private String address;
     private String address2;
     private String city;
@@ -26,7 +26,18 @@ public class Account {
         this.email = email;
         this.password = password;
     }
-
+    
+    public Account(String email, String password, String firstName, String lastName, String address, String address2, String city, String state, String zip) {
+		this.email = email;
+		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.address = address;
+		this.address2 = address2;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+	}
 
     //@OneToMany(mappedBy = "owner")
     //private List<Pet> pets;

@@ -31,10 +31,9 @@ public class ReservationServlet extends HttpServlet {
 		if (account == null) {
 			resp.sendRedirect(Strings.LOGIN);
 		}
-
-		session = req.getSession();
+		
+		
 		String formParam = "";
-
 		formParam = req.getParameter("formName");
 
 		if (formParam != null) {
