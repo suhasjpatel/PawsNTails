@@ -3,6 +3,9 @@ package pawsntails.models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * Java Entity to map to the Account table in the derby database.
+ */
 @Entity
 public class Account {
 
@@ -11,8 +14,6 @@ public class Account {
     private String password;
     private String firstName;
     private String lastName;
-    private String phoneNumber;
-	private String phoneType;
     private String address;
     private String address2;
     private String city;
@@ -26,117 +27,53 @@ public class Account {
         this.email = email;
         this.password = password;
     }
-    
-    public Account(String email, String password, String firstName, String lastName, String address, String address2, String city, String state, String zip) {
-		this.email = email;
-		this.password = password;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.address = address;
-		this.address2 = address2;
-		this.city = city;
-		this.state = state;
-		this.zip = zip;
-	}
 
-    //@OneToMany(mappedBy = "owner")
-    //private List<Pet> pets;
+    public Account(String email, String password, String firstName, String lastName, String address, String address2,
+                   String city, String state, String zip) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.address2 = address2;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+    }
 
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String username) {
-        this.email = username;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     public String getFirstName() {
         return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
     }
 
     public String getLastName() {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    public String getPhoneType() {
-        return phoneType;
-    }
-
-    public void setPhoneType(String phoneType) {
-        this.phoneType = phoneType;
-    }
-
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public String getAddress2() {
         return address2;
     }
 
-    public void setAddress2(String address2) {
-        this.address2 = address2;
-    }
-
     public String getCity() {
         return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
     }
 
     public String getState() {
         return state;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getZip() {
         return zip;
     }
-
-    public void setZip(String zip) {
-        this.zip = zip;
-    }
-
-    /*
-    public List<Pet> getPets() {
-        return pets;
-    }
-
-    public void setPets(List<Pet> pets) {
-        this.pets = pets;
-    }
-    */
 }

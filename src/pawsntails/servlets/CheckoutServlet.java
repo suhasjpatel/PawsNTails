@@ -1,22 +1,21 @@
 package pawsntails.servlets;
 
+import pawsntails.models.Account;
+import pawsntails.models.ReservationsBean;
+import pawsntails.shared.Strings;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import pawsntails.models.Account;
-import pawsntails.shared.ReservationBean;
-import pawsntails.shared.Strings;
-
 import java.io.IOException;
-import java.util.ArrayList;
 
+/**
+ * Servlet to handle processing after checking out a cart.
+ */
 public class CheckoutServlet extends HttpServlet {
-	private HttpSession session;
-	private StringBuilder errorMessage;
-	private ArrayList<ReservationBean> reservations;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,20 +24,15 @@ public class CheckoutServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	session = req.getSession();
-		errorMessage = new StringBuilder();
-		Account account = (Account) session.getAttribute(Strings.ACCOUNT);
-		ArrayList<ReservationBean> reservations = (ArrayList<ReservationBean>) session.getAttribute("reservations");
-		if (account == null) {
-			//AN ERROR OCCURED HERE
-			System.out.println("error!! account is null");
-		}
-		
-		sendEmail(account.getEmail(), reservations);
-    }
-    
-    private void sendEmail(String email, ArrayList<ReservationBean> reservations)
-    {
-    	//TODO send the email
+        HttpSession session = req.getSession();
+        StringBuilder errorMessage = new StringBuilder();
+        Account account = (Account) session.getAttribute(Strings.ACCOUNT);
+        ReservationsBean reservations = (ReservationsBean) session.getAttribute("reservations");
+        RequestDispatcher checkout = req.getRequestDispatcher(Strings.CHECKOUT);
+
+        //TODO: Send Email. And other things.
+        //sendEmail(account.getEmail(), reservations);
+
+        checkout.forward(req, resp);
     }
 }

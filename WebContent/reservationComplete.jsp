@@ -1,53 +1,32 @@
-<%@ page import="pawsntails.shared.Strings"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="pawsntails.models.ReservationsBean" %>
+<%@ page import="pawsntails.shared.Strings" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="new_reservations" scope="session" class="pawsntails.models.ReservationsBean"/>
+
 <html>
-<jsp:include page="<%=Strings.HEADER%>" />
+<jsp:include page="<%=Strings.HEADER%>"/>
 <body>
-	<jsp:include page="<%=Strings.MENU%>" />
-	<%@	page import="pawsntails.shared.ReservationBean"%>
-	<%@	page import="java.util.*"%>
-	<%@	page import = "java.text.SimpleDateFormat" %>
-	<div class="container">
-		<center>
-			<h1>Thank you picking us to book your beloved pet overnight!</h1>
-			<h3>Below is a review of your booking. It will be added to your cart for checkout.</h3>
-			
-			<br>
-			<table class="table table-striped">
-			<thead>
-			<tr>
-			<th>Date</th>
-			<th>Breed</th>
-			<th>Room Type</th>
-			<th>Activities</th>
-			</thead>
-			<tbody>
+<jsp:include page="<%=Strings.MENU%>"/>
 
-			<% ArrayList<ReservationBean> reservations = (ArrayList<ReservationBean>)session.getAttribute("reservations"); 
-				for (int i = 0; i < reservations.size(); i++) {
-					ReservationBean reservation = reservations.get(i);
-					SimpleDateFormat formatter=new SimpleDateFormat("dd/MM/yyyy");  
-			%>
-			<tr>
-			<td> 
-			<%=reservation.datePretty(reservation.getFromDate()) %> - <%=reservation.datePretty(reservation.getToDate()) %></td>
-			<td> <%=reservation.getAnimal() %></td>
-			<td> <%=reservation.getRoom()%></td>
-			<td> <%=Arrays.toString(reservation.getActivities()) %></td>
-			</tr>
-			<%}%>
-			</tbody>	
-			</table>
+<div class="container" style="text-align: center">
+    <h1>Thank you picking us to book your beloved pet overnight!</h1>
+    <h3>Below is a review of your booking. It will be added to your cart for checkout.</h3>
 
-		</center>
-	</div>
-	<form action="<%=Strings.CART%>">
-		<!-- various input boxes for the form -->
-		<input type="submit" value="View Cart">
-	</form>
-	<form action="<%=Strings.RESERVATION%>">
-		<!-- various input boxes for the form -->
-		<input type="submit" value="Make Another Reservation">
-	</form>
+    <jsp:include page="reservationTable.jsp"/>
+
+    <%
+        session.setAttribute("new_reservations", new ReservationsBean());
+    %>
+
+    <form action="<%=Strings.CART%>">
+        <!-- various input boxes for the form -->
+        <input type="submit" class="btn btn-default" value="View Cart">
+    </form>
+    <form action="<%=Strings.RESERVATION%>">
+        <!-- various input boxes for the form -->
+        <input type="submit" class="btn btn-default" value="Make Another Reservation">
+    </form>
+</div>
 </body>
 </html>

@@ -5,15 +5,6 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>AccountServlet</servlet-name>
-        <servlet-class>pawsntails.servlets.AccountServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>AccountServlet</servlet-name>
-        <url-pattern>/account</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>pawsntails.servlets.CheckoutServlet</servlet-class>
     </servlet>
@@ -53,5 +44,14 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>*</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
 
 </web-app>

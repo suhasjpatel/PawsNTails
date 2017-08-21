@@ -1,79 +1,53 @@
-<%@ page import="pawsntails.shared.Strings"%>
-<%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ page import="pawsntails.shared.Strings" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<jsp:useBean id="account" scope="session" class="pawsntails.models.Account"/>
+<jsp:useBean id="reservations" scope="session" class="pawsntails.models.ReservationsBean"/>
+
 <html>
-<jsp:include page="<%=Strings.HEADER%>" />
+<jsp:include page="<%=Strings.HEADER%>"/>
 <body>
-	<jsp:include page="<%=Strings.MENU%>" />
-	<%@	page import="pawsntails.shared.ReservationBean"%>
-	<%@	page import="java.util.*"%>
-	<%@	page import="java.text.SimpleDateFormat"%>
-	<div class="container">
-		<center>
-			<h1>Thank you picking us to book your beloved pet overnight!</h1>
-			<%
-				if (session.getAttribute("reservations") != null) {
-			%>
-			<h3>Below is a review of your booking. It will be added to your
-				cart for checkout.</h3>
+<jsp:include page="<%=Strings.MENU%>"/>
 
-			<br>
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Date</th>
-						<th>Breed</th>
-						<th>Room Type</th>
-						<th>Activities</th>
-						<th>Edit</th>
-				</thead>
-				<tbody>
+<div class="container" style="text-align:center;">
+    <%
+        if (account.getEmail() == null) {
+    %>
+    <h1>Looks like you haven't signed in. Please click the link
+        below to sign in or to create an account</h1>
+    <br/>
+    <form action="<%=Strings.LOGIN%>">
+        <input type="submit" class="btn btn-default" value="Login/Register"/>
+    </form>
+    <%} else {%>
+    <h1>Thank you picking us to book your beloved pet overnight!</h1>
+    <%
+        if (!reservations.getReservations().isEmpty()) {
+    %>
 
-					<%
-						ArrayList<ReservationBean> reservations = (ArrayList<ReservationBean>) session
-									.getAttribute("reservations");
-							for (int i = 0; i < reservations.size(); i++) {
-								ReservationBean reservation = reservations.get(i);
-								SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    <h3>Below is a review of your booking.</h3>
 
-								//TODO need to add an edit page 
-								//form doesn't work right now
-					%>
-					<form <% //TODO need to add action here %>>
-						<tr>
-							<td><%=reservation.datePretty(reservation.getFromDate())%> -
-								<%=reservation.datePretty(reservation.getToDate())%></td>
-							<td><%=reservation.getAnimal()%></td>
-							<td><%=reservation.getRoom()%></td>
-							<td><%=Arrays.toString(reservation.getActivities())%></td>
-							<td><input type="button" value="Edit"></input></td>
-						</tr>
-					</form>
-					<%
-						}
-					%>
-				</tbody>
-			</table>
-			<form action="<%=Strings.CHECKOUT_SERV%>">
-				<input type="submit" value="Checkout">
-			</form>
-			<form action="<%=Strings.RESERVATION_SERV%>">
-				<input type="submit" value="Make another reservation">
-			</form>
-			<%
-				} else {
-			%>
+    <jsp:include page="<%=Strings.RESERVATIONTABLE%>"/>
 
-			<h3>It looks like you have yet to make a reservation.</h3>
-			<form action="<%=Strings.RESERVATION_SERV%>">
-				<input type="submit" value="Make a Reservation">
-			</form>
-			<%
-				}
-			%>
-		</center>
-
-	</div>
-
-
+    <form action="<%=Strings.CHECKOUT_SERV%>">
+        <input type="submit" class="btn btn-default" value="Checkout">
+    </form>
+    <form action="<%=Strings.RESERVATION_SERV%>">
+        <input type="submit" class="btn btn-default" value="Make Another Reservation">
+    </form>
+    <%
+    } else {
+    %>
+    <h3>It looks like you have yet to make a reservation.</h3>
+    <form action="<%=Strings.RESERVATION_SERV%>">
+        <input type="submit" class="btn btn-default" value="Make a Reservation">
+    </form>
+    <%
+        }
+    %>
+    <%
+        }
+    %>
+</div>
 </body>
 </html>

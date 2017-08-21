@@ -1,28 +1,30 @@
 package pawsntails.servlets;
 
+import pawsntails.dao.PawsNTailsDAO;
+import pawsntails.models.Account;
+import pawsntails.shared.AccountValidator;
+import pawsntails.shared.Strings;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import pawsntails.models.Account;
-import pawsntails.shared.Strings;
-
 import java.io.IOException;
 
+/**
+ * Servlet to handle registering for the web application.
+ */
 public class RegisterServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);
-        
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-    	StringBuilder errorMessage = new StringBuilder();
         HttpSession session = req.getSession();
         String firstName = req.getParameter(Strings.FIRSTNAME);
         String lastName = req.getParameter(Strings.LASTNAME);
@@ -30,21 +32,28 @@ public class RegisterServlet extends HttpServlet {
         String password = req.getParameter(Strings.PASSWORD);
         String address1 = req.getParameter(Strings.ADDRESS1);
         String address2 = req.getParameter(Strings.ADDRESS2);
-        String city = req.getParameter("city");
-        String state = req.getParameter("state");
-        String zipcode = req.getParameter("zipcode");
-        
-        //TODO ADD VALIDATION
-        
+        String city = req.getParameter(Strings.CITY);
+        String state = req.getParameter(Strings.STATE);
+        String zipcode = req.getParameter(Strings.ZIP);
+        PawsNTailsDAO dao = new PawsNTailsDAO();
+
+        StringBuilder errorMessage = AccountValidator.validate(firstName, lastName, email, password,
+                address1, address2, city, state, zipcode);
+
         RequestDispatcher register = req.getRequestDispatcher(Strings.LOGIN);
-        if (errorMessage.toString().isEmpty()) {
-            Account account = new Account(email, password, firstName, lastName, address1, address2, city, state, zipcode);
-            session.setAttribute(Strings.ACCOUNT, account);
-            resp.sendRedirect(Strings.MYACCOUNT);
+        Account account = new Account(email, password, firstName, lastName, address1, address2, city, state, zipcode);
+        session.setAttribute(Strings.ACCOUNT, account);
+
+        if (dao.findUser(account) != null) {
+            errorMessage.append("There is already an account with that email. Please use another email. <br />");
         }
-    	else {
-    	req.setAttribute("errorMessageRegister", errorMessage);
-    	register.forward(req, resp);
-    }
+
+        if (errorMessage.toString().isEmpty()) {
+            dao.update(account);
+            resp.sendRedirect(Strings.INDEX);
+        } else {
+            req.setAttribute("errorMessageRegister", errorMessage);
+            register.forward(req, resp);
+        }
     }
 }
