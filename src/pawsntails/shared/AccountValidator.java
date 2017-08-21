@@ -9,7 +9,6 @@ public class AccountValidator {
                                          String address1, String address2, String city, String state, String zipcode) {
         StringBuilder errorMessage = new StringBuilder();
 
-        //TODO <Maybe> Make these better?
         if (firstName.isEmpty()) {
             errorMessage.append("Please make sure to enter your first name. <br />");
         } else if (firstName.length() > Strings.STRING_LEN) {
@@ -30,8 +29,8 @@ public class AccountValidator {
 
         if (password.isEmpty()) {
             errorMessage.append("Please include the password to your account. <br />");
-        } else if (password.length() > Strings.STRING_LEN) {
-            errorMessage.append("Please make sure your password is under " + Strings.STRING_LEN + " characters. <br />");
+        } else if (password.length() > Strings.STRING_LEN || password.length() < 8) {
+            errorMessage.append("Please make sure your password is more than 8 characters, but under " + Strings.STRING_LEN + " characters. <br />");
         }
 
         if (address1.isEmpty()) {

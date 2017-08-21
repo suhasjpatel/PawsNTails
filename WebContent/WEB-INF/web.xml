@@ -5,6 +5,15 @@
          version="3.1">
 
     <servlet>
+        <servlet-name>AccountServlet</servlet-name>
+        <servlet-class>pawsntails.servlets.AccountServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountServlet</servlet-name>
+        <url-pattern>/account</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
         <servlet-name>CheckoutServlet</servlet-name>
         <servlet-class>pawsntails.servlets.CheckoutServlet</servlet-class>
     </servlet>

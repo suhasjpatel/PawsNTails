@@ -32,12 +32,12 @@
 
         <h3>Pick enter a date you wish to begin stay.</h3>
         <div class="well">
-            <input type="text" placeholder="MM/dd/yyyy" name="fromDate" id="fromDate" required>
+            <input type="text" class="form-control" placeholder="MM/dd/yyyy" name="fromDate" id="fromDate" required>
         </div>
 
         <h3>Pick enter a date you wish to end stay.</h3>
         <div class="well">
-            <input type="text" placeholder="MM/dd/yyyy" name="toDate" id="toDate" required>
+            <input type="text" class="form-control" placeholder="MM/dd/yyyy" name="toDate" id="toDate" required>
         </div>
         <hr>
 
